@@ -117,6 +117,20 @@ http://127.0.0.1:8000/api/rag/search?q=上海出发，有水，有咖啡
 product_demo.html
 ```
 
+当前 GitHub/Vercel 入口已经合并为：
+
+```text
+index.html
+```
+
+`index.html` 与 `product_demo.html` 内容一致，并额外嵌入：
+
+```text
+prototype_interactive.html
+```
+
+用于展示原有 Figma/HTML 手机交互原型。部署到 Vercel 后访问根路径 `/` 即可看到合并后的产品 HTML 页面。
+
 如果 API 未启动，Demo 区会显示友好提示：
 
 ```text
