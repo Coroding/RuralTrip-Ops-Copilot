@@ -1,0 +1,11 @@
+﻿file,title,tags,source
+knowledge_cards/method_01_rag_card_schema.md,RAG入库结构：村庄案例卡字段规范,RAG|知识库|案例卡|字段规范,结合项目PDF案例组织结构与RAG工程实践
+knowledge_cards/method_02_village_vibe_typology.md,村庄气质类型库,村庄气质|文旅类型|用户匹配,由案例卡归纳
+knowledge_cards/method_03_user_journey_rural_trip.md,江浙沪乡村游用户旅程,用户旅程|旅行产品|痛点,产品化归纳
+knowledge_cards/method_04_route_generation_principles.md,乡村路线生成原则,路线生成|地图叙事|产品规则,产品化归纳
+knowledge_cards/method_05_content_generation_principles.md,乡村文旅内容生成原则,内容生成|小红书|短视频|地图视频,结合地图叙事产品思路
+knowledge_cards/method_06_youth_in_rural_mechanisms.md,青年入乡机制类型,青年入乡|机制|规划理论,PDF归纳：市场诱发、政府平台、系统重构等
+knowledge_cards/method_07_planning_design_principles.md,乡村文旅规划设计原则,规划设计|乡村文旅|空间策略,结合乡村规划实践归纳
+knowledge_cards/method_08_badcase_guardrails.md,AI乡村文旅推荐Badcase与兜底,Badcase|AI产品|风控|兜底,AI产品设计归纳
+knowledge_cards/method_09_evaluation_metrics.md,RAG与产品验证指标,指标体系|RAG评估|产品验证,产品化归纳
+knowledge_cards/method_10_prompt_templates.md,乡村文旅RAG提示词模板,Prompt|RAG|输出模板,产品化归纳
