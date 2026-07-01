@@ -1,0 +1,60 @@
+name: Deploy RuralTrip Ops Copilot to CloudBase
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    name: Build and deploy static site
+    runs-on: ubuntu-latest
+    env:
+      DEPLOY_DIR: dist
+      DEPLOY_PATH: /ruraltrip-ops-copilot
+      TCB_ENV_ID: ${{ secrets.TCB_ENV_ID }}
+      TCB_SECRET_ID: ${{ secrets.TCB_SECRET_ID }}
+      TCB_SECRET_KEY: ${{ secrets.TCB_SECRET_KEY }}
+      TENCENTCLOUD_SECRETID: ${{ secrets.TCB_SECRET_ID }}
+      TENCENTCLOUD_SECRETKEY: ${{ secrets.TCB_SECRET_KEY }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build static site
+        run: npm run build
+
+      - name: Validate dist output
+        run: |
+          test -f "$DEPLOY_DIR/index.html"
+          test -d "$DEPLOY_DIR/assets"
+
+      - name: Check CloudBase secrets
+        shell: bash
+        run: |
+          test -n "$TCB_SECRET_ID"
+          test -n "$TCB_SECRET_KEY"
+          test -n "$TCB_ENV_ID"
+
+      - name: Deploy to CloudBase static hosting
+        run: >
+          npx --yes @cloudbase/cli@latest hosting:deploy
+          "$DEPLOY_DIR"
+          "$DEPLOY_PATH"
+          -e "$TCB_ENV_ID"
+          --secretId "$TCB_SECRET_ID"
+          --secretKey "$TCB_SECRET_KEY"
